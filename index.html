@@ -121,7 +121,7 @@ header.flutua{background:rgba(32,43,27,.92);backdrop-filter:blur(10px);box-shado
 }
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,5vw,4rem);align-items:center;max-width:var(--larg)}
 .hero-retrato{border-radius:var(--raio);overflow:hidden;aspect-ratio:4/5;box-shadow:0 44px 90px -34px rgba(0,0,0,.65);border:1px solid rgba(236,227,210,.16)}
-.hero-retrato img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-retrato img{width:100%;height:100%;object-fit:cover;object-position:60% 20%}
 .hero-raizes{position:absolute;inset:0;width:100%;height:100%;opacity:.12;pointer-events:none;z-index:1}
 .hero-grao{position:absolute;inset:0;opacity:.05;pointer-events:none;mix-blend-mode:overlay;z-index:1;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");}
@@ -316,6 +316,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
   .hero-pilares{grid-template-columns:1fr;gap:1.8rem;text-align:left}
   .hero-grid{grid-template-columns:1fr;gap:2.2rem}
   .hero-retrato{order:-1;max-width:360px;margin:0 auto;aspect-ratio:1}
+  .hero-retrato img{object-position:72% 32%}
     .contato-grid{direction:ltr}
 }
 @media(max-width:480px){
@@ -388,7 +389,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     </div>
     </div>
     <figure class="hero-retrato reveal">
-      <img src="img/hero-foto.webp" alt="Cuidado capilar do Ateliê das Raízes" width="720" height="900" fetchpriority="high" loading="eager" decoding="async">
+      <img src="img/hero-foto.webp" alt="Cabelo cacheado saudável, cuidado do Ateliê das Raízes" width="1000" height="1333" fetchpriority="high" loading="eager" decoding="async">
     </figure>
    </div>
 
