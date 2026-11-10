@@ -2,5 +2,6 @@
 README.md
 google/
 img/_originais-instagram/
-# o site usa as versões .webp
+# o site usa as versões .webp (o compartilhar.jpg vai junto: é a imagem do link no WhatsApp)
 img/*.jpg
+!img/compartilhar.jpg
