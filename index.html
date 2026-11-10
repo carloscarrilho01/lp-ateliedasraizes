@@ -263,7 +263,7 @@ section{padding:clamp(70px,10vw,120px) 0}
 .agenda-result.ok{background:#eaf1e4;border:1px solid rgba(85,96,73,.4);color:#3b4a32}
 .agenda-result.erro{background:#fbeae4;border:1px solid rgba(176,80,60,.35);color:#8a3b28}
 .agenda-result strong{display:block;margin-bottom:.2rem;font-size:1.02rem}
-.agenda-result .btn{margin-top:.9rem}
+.agenda-result .btn{margin-top:.9rem;width:100%;justify-content:center;text-align:center}
 
 /* Contato */
 .contato{background:var(--areia)}
@@ -572,7 +572,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     <div class="agendar-intro reveal">
       <span class="kicker" style="display:block;margin-bottom:1rem">Agendamento</span>
       <h2>Marque sua <em>avaliação</em></h2>
-      <p>Escolha o serviço, o dia e o horário livre. A reserva entra direto na agenda da Jaqueline, ela recebe o aviso no WhatsApp e confirma com você.</p>
+      <p>Escolha o serviço, o dia e o horário livre. A reserva entra direto na agenda da Jaqueline, e você manda a confirmação para ela no WhatsApp com um toque.</p>
       <ul class="agendar-bullets">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Resposta pessoal, sem robô</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Sem compromisso até confirmar</li>
@@ -848,12 +848,12 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 
     if (r && r.ok){
       form.querySelectorAll('input,select,button').forEach(el => el.disabled = true);
-      const msg = encodeURIComponent('Olá, Jaqueline! Agendei pelo site ('+p.servico+', '+dataBonita(p.data)+' às '+p.hora+') e preciso remarcar.');
+      const msg = encodeURIComponent('Olá, Jaqueline! Acabei de agendar pelo site 🌿\n\n• Serviço: '+p.servico+'\n• Dia: '+dataBonita(p.data)+'\n• Horário: '+p.hora+'\n• Nome: '+p.nome);
       resultado.hidden = false; resultado.className = 'agenda-result ok';
       resultado.innerHTML = '<strong>Horário reservado! 🌿</strong>'+p.servico+', '+dataBonita(p.data)+' às '+p.hora+'.<br>'+
-        'A Jaqueline já recebeu o seu agendamento e confirma com você pelo WhatsApp '+p.telefone.replace(/[^\d()+\- ]/g,'')+'.<br>'+
-        '<span style="font-size:.88rem;opacity:.85">Precisa remarcar ou cancelar? É só chamar no WhatsApp.</span>'+
-        '<a class="btn btn-escuro" href="https://wa.me/'+WPP+'?text='+msg+'" target="_blank" rel="noopener">Remarcar pelo WhatsApp</a>';
+        '<b>Último passo:</b> envie a confirmação para a Jaqueline no WhatsApp. A mensagem já vai pronta.'+
+        '<a class="btn btn-primario" href="https://wa.me/'+WPP+'?text='+msg+'" target="_blank" rel="noopener">Confirmar no WhatsApp</a>'+
+        '<span style="display:block;font-size:.86rem;opacity:.8;margin-top:.7rem">Para remarcar ou cancelar, é só falar com ela por lá.</span>';
       if (window.va) window.va('event', { name: 'Agendamento', data: { servico: p.servico } });
       resultado.scrollIntoView({behavior:'smooth', block:'center'});
     } else if (r && r.motivo === 'ocupado'){

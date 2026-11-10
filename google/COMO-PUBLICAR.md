@@ -36,30 +36,16 @@ window.ATELIE_AGENDA = {
 Salve. Pronto: os agendamentos do site passam a cair no Google Calendar, e horários ocupados
 somem da tela automaticamente.
 
-## Aviso no WhatsApp da Jaqueline a cada agendamento
+## Como a Jaqueline fica sabendo de cada agendamento
 
-Cada reserva manda uma mensagem para o WhatsApp dela (e uma cópia por e-mail) com serviço, dia,
-horário, nome da cliente e um link para responder direto. O envio usa o **CallMeBot**, serviço
-gratuito para avisos no próprio WhatsApp. Configuração, uma vez, no celular da Jaqueline:
-
-1. Em **callmebot.com** (seção WhatsApp API), pegue o número do robô do CallMeBot e salve como
-   contato "CallMeBot" no celular dela.
-2. Do WhatsApp dela, mande para esse contato: `I allow callmebot to send me messages`
-3. Em até 2 minutos chega a resposta com a **apikey** (um número).
-4. No Apps Script: **Configurações do projeto (engrenagem) → Propriedades do script → Adicionar**:
-   - `WHATSAPP_AVISO` = `5511961712240` (o número dela, com 55 e DDD, só dígitos)
-   - `CALLMEBOT_APIKEY` = a apikey recebida
-   - `EMAIL_AVISO` = (opcional) e-mail para a cópia
-5. No editor, escolha a função **testarAviso** e clique em **Executar**. O Google pede para
-   autorizar "enviar e-mail" e "conectar a serviço externo" (é o aviso). A mensagem de teste
-   deve chegar no WhatsApp dela.
-6. Reimplante (Implantar → Gerenciar implantações → editar → Nova versão).
-
-Observações:
-- O CallMeBot é gratuito e serve para avisos pessoais, não para mandar mensagem às clientes.
-  Se um dia ele ficar fora do ar, a reserva continua entrando na agenda e o e-mail continua chegando.
-- Para algo oficial e com o número do ateliê como remetente, o caminho é a API do WhatsApp
-  Business (Meta), que pede cadastro de empresa e tem custo por conversa.
+1. **WhatsApp:** depois de reservar, o site mostra para a cliente o botão "Enviar confirmação no
+   WhatsApp", com a mensagem pronta (serviço, dia, horário e nome). A conversa já começa com a
+   cliente, e a Jaqueline responde por ali.
+2. **E-mail:** o script manda um e-mail para a conta Google dona da agenda a cada reserva, com o
+   WhatsApp da cliente e um link para responder. Vale ativar a notificação do Gmail no celular.
+   Na primeira vez, rode a função **testarAviso** no editor: o Google pede para autorizar o envio
+   de e-mail e o teste chega na caixa de entrada.
+3. **Agenda:** o horário entra no Google Agenda dela de qualquer jeito.
 
 ## Importante
 - **Atualizou o `Code.gs`?** Cole a versão nova no Apps Script e faça **Implantar → Gerenciar implantações → editar (lápis) → Versão: Nova versão → Implantar**. A URL `/exec` continua a mesma; sem isso o site segue usando o código antigo.
