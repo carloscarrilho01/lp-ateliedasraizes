@@ -11,6 +11,7 @@
 <meta property="og:description" content="Cuidar do cabelo começa pela raiz. Terapia capilar integrativa com Jaqueline Moreira, em Santana de Parnaíba (SP).">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#26331F">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%2326331F'/%3E%3Cpath%20d='M16%206c0%204-2.4%205.6-2.4%208.8a2.4%202.4%200%20004.8%200c0-3.2-2.4-4.8-2.4-8.8z'%20fill='%23C7A253'/%3E%3Cpath%20d='M16%2015v11M16%2026c-2.2%200-4.4-1.5-5.2-3.7M16%2026c2.2%200%204.4-1.5%205.2-3.7'%20stroke='%23C7A253'%20stroke-width='1.6'%20stroke-linecap='round'%20fill='none'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://ateliedasraizes.vercel.app/">
@@ -213,6 +214,22 @@ section{padding:clamp(70px,10vw,120px) 0}
 .faixa{background:var(--raiz-escura);color:var(--creme);text-align:center;padding:clamp(60px,9vw,100px) 0}
 .faixa blockquote{font-family:var(--fonte-display);font-style:italic;font-weight:400;font-size:clamp(1.5rem,3.6vw,2.4rem);max-width:760px;margin:0 auto;line-height:1.35}
 .faixa blockquote em{color:var(--dourado);font-style:italic}
+
+/* Acessibilidade: foco visível no teclado + âncoras abaixo da navbar fixa */
+:focus-visible{outline:2px solid var(--dourado);outline-offset:3px;border-radius:4px}
+section[id]{scroll-margin-top:88px}
+
+/* Depoimentos (prova social) */
+.depo{background:var(--areia-2)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.depo-card{background:#fffdf8;border:1px solid var(--linha);border-radius:var(--raio);padding:1.8rem 1.6rem;display:flex;flex-direction:column;box-shadow:0 18px 40px -28px rgba(38,51,31,.4)}
+.depo-estrelas{color:var(--dourado);font-size:1rem;letter-spacing:.12em;margin-bottom:.9rem}
+.depo-card blockquote{font-family:var(--fonte-display);font-style:italic;font-size:1.12rem;line-height:1.45;color:var(--carvao);margin-bottom:1.2rem;flex:1}
+.depo-autor{display:flex;align-items:center;gap:.7rem}
+.depo-ini{width:40px;height:40px;border-radius:50%;background:var(--musgo);color:var(--creme);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.9rem;flex:none}
+.depo-nome{font-weight:600;color:var(--carvao);font-size:.96rem}
+.depo-nome small{display:block;font-weight:400;color:var(--carvao-suave);font-size:.82rem}
+@media(max-width:860px){.depo-grid{grid-template-columns:1fr}}
 
 /* Perguntas frequentes (seção comentada no HTML até ter as respostas) */
 .faq{background:var(--areia)}
@@ -544,6 +561,39 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     </div>
   </div>
 </section>
+
+<!-- ============ DEPOIMENTOS (pronto para ligar) ============
+  Para publicar: troque cada card pelo depoimento REAL (nome + texto da cliente, com permissão,
+  ou print de avaliação do Google/Instagram), ajuste as iniciais no .depo-ini, e tire este comentário.
+  Depois, se quiser, adicione no menu: <a href="#depoimentos">Depoimentos</a>.
+  NÃO inventar depoimentos.
+
+<section class="depo" id="depoimentos">
+  <div class="container">
+    <div class="sec-cabeca reveal">
+      <span class="kicker">Quem já cuidou aqui</span>
+      <h2>O que dizem as <em>clientes</em></h2>
+    </div>
+    <div class="depo-grid">
+      <figure class="depo-card reveal">
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>DEPOIMENTO REAL DA CLIENTE AQUI.</blockquote>
+        <figcaption class="depo-autor"><span class="depo-ini" aria-hidden="true">--</span><span class="depo-nome">Nome da cliente<small>Serviço realizado</small></span></figcaption>
+      </figure>
+      <figure class="depo-card reveal">
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>DEPOIMENTO REAL DA CLIENTE AQUI.</blockquote>
+        <figcaption class="depo-autor"><span class="depo-ini" aria-hidden="true">--</span><span class="depo-nome">Nome da cliente<small>Serviço realizado</small></span></figcaption>
+      </figure>
+      <figure class="depo-card reveal">
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>DEPOIMENTO REAL DA CLIENTE AQUI.</blockquote>
+        <figcaption class="depo-autor"><span class="depo-ini" aria-hidden="true">--</span><span class="depo-nome">Nome da cliente<small>Serviço realizado</small></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+-->
 
 <!-- ============ PERGUNTAS FREQUENTES (pronto para ligar) ============
   Para publicar: preencher as respostas com o texto da Jaqueline e tirar este comentário.
