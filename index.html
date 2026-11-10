@@ -200,7 +200,7 @@ section{padding:clamp(70px,10vw,120px) 0}
 .passo p{font-size:.95rem;color:var(--carvao-suave)}
 .passo:not(:last-child)::after{content:"";position:absolute;top:2.75rem;left:3.6rem;right:-1.2rem;height:1px;background:linear-gradient(90deg,rgba(176,122,79,.45),rgba(176,122,79,.12))}
 
-/* Galeria de resultados */
+/* Galeria: registros do ateliê */
 .galeria{background:var(--areia)}
 .galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .galeria-item{position:relative;aspect-ratio:1;border-radius:var(--raio);overflow:hidden;box-shadow:0 18px 40px -24px rgba(38,51,31,.45)}
@@ -213,6 +213,16 @@ section{padding:clamp(70px,10vw,120px) 0}
 .faixa{background:var(--raiz-escura);color:var(--creme);text-align:center;padding:clamp(60px,9vw,100px) 0}
 .faixa blockquote{font-family:var(--fonte-display);font-style:italic;font-weight:400;font-size:clamp(1.5rem,3.6vw,2.4rem);max-width:760px;margin:0 auto;line-height:1.35}
 .faixa blockquote em{color:var(--dourado);font-style:italic}
+
+/* Perguntas frequentes (seção comentada no HTML até ter as respostas) */
+.faq{background:var(--areia)}
+.faq-lista{display:grid;gap:.8rem;max-width:780px}
+.faq details{background:#fffdf8;border:1px solid var(--linha);border-radius:14px;padding:1.1rem 1.3rem}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--argila);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:.7rem;color:var(--carvao-suave)}
 
 /* Agendamento */
 .agendar{background:var(--areia-2)}
@@ -337,6 +347,9 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
   .btn:hover,.card:hover,.wpp-flut:hover{transform:none}
 }
 </style>
+<!-- Vercel Web Analytics (ativar em Vercel > projeto > Analytics). Sem cookies, não precisa de banner. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -354,7 +367,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
       <a href="#sobre">Sobre</a>
       <a href="#terapias">Terapias</a>
       <a href="#metodo">Como funciona</a>
-      <a href="#resultados">Resultados</a>
+      <a href="#atelie">No ateliê</a>
       <a href="#contato">Localização</a>
       <a class="btn btn-primario" href="#agendar">Agendar</a>
     </nav>
@@ -448,25 +461,21 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
         <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5M12 8a5 5 0 00-5 5c0 4 2 6 5 8 3-2 5-4 5-8a5 5 0 00-5-5z"/></svg></span>
         <h3>Terapia capilar integrativa</h3>
         <p>Tratamento do couro cabeludo e dos fios combinando saúde e estética. Indicado para queda, oleosidade, caspa, ressecamento e enfraquecimento.</p>
-        <p class="preco">Sob avaliação</p>
       </article>
       <article class="card reveal">
         <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l10 10M14 7L4 17M16 5l4 4-6 6"/></svg></span>
         <h3>Corte</h3>
         <p>Corte pensado para o seu tipo de fio e formato de rosto, respeitando a saúde do cabelo e a sua rotina de cuidado em casa.</p>
-        <p class="preco">Sob avaliação</p>
       </article>
       <article class="card reveal">
         <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c4-6 14-6 18 0M7 14a1.5 1.5 0 003 0M14 14a1.5 1.5 0 003 0"/></svg></span>
         <h3>Design de sobrancelhas</h3>
         <p>Design que harmoniza o olhar com o seu rosto, simetria, formato e acabamento limpo, com cuidado na pele.</p>
-        <p class="preco">Sob avaliação</p>
       </article>
       <article class="card reveal">
         <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>
         <h3>Tratamentos capilares</h3>
         <p>Protocolos de hidratação, nutrição e reconstrução conforme a necessidade do seu fio, dentro do plano da terapia.</p>
-        <p class="preco">Sob avaliação</p>
       </article>
       <article class="card reveal">
         <span class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M3 12a9 9 0 0015 6.7"/></svg></span>
@@ -520,21 +529,42 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
 </section>
 
 <!-- ============ GALERIA / RESULTADOS ============ -->
-<section class="galeria" id="resultados">
+<section class="galeria" id="atelie">
   <div class="container">
     <div class="sec-cabeca reveal">
-      <span class="kicker">Na prática</span>
+      <span class="kicker">No ateliê</span>
       <h2>Cuidado que <em>aparece</em></h2>
-      <p>Do couro cabeludo tratado ao fio com vida, alguns registros do trabalho do ateliê.</p>
+      <p>Alguns registros do dia a dia do ateliê, do cuidado com o couro cabeludo ao acabamento.</p>
     </div>
     <div class="galeria-grid">
       <figure class="galeria-item reveal"><img src="img/metodo.webp" alt="Aplicação de tratamento no couro cabeludo" loading="lazy" decoding="async"><figcaption>Saúde do couro cabeludo</figcaption></figure>
-      <figure class="galeria-item reveal"><img src="img/g1.webp" alt="Cabelo saudável após tratamento" loading="lazy" decoding="async"><figcaption>Fios com vida</figcaption></figure>
-      <figure class="galeria-item reveal"><img src="img/g2.webp" alt="Resultado de tratamento capilar" loading="lazy" decoding="async"><figcaption>Resultado do cuidado</figcaption></figure>
+      <figure class="galeria-item reveal"><img src="img/g1.webp" alt="Cabelo cacheado no ateliê" loading="lazy" decoding="async"><figcaption>Fios com vida</figcaption></figure>
+      <figure class="galeria-item reveal"><img src="img/g2.webp" alt="Tratamento capilar no ateliê" loading="lazy" decoding="async"><figcaption>Tratamento capilar</figcaption></figure>
       <figure class="galeria-item reveal"><img src="img/g3.webp" alt="Produtos usados no tratamento capilar" loading="lazy" decoding="async"><figcaption>Produtos selecionados</figcaption></figure>
     </div>
   </div>
 </section>
+
+<!-- ============ PERGUNTAS FREQUENTES (pronto para ligar) ============
+  Para publicar: preencher as respostas com o texto da Jaqueline e tirar este comentário.
+  Não inventar respostas: tempo de sessão, número de sessões e indicações são decisão dela.
+
+<section class="faq" id="duvidas">
+  <div class="container">
+    <div class="sec-cabeca reveal">
+      <span class="kicker">Dúvidas</span>
+      <h2>Antes de <em>agendar</em></h2>
+    </div>
+    <div class="faq-lista">
+      <details class="reveal"><summary>Quanto tempo dura a avaliação?</summary><p>RESPOSTA DA JAQUELINE</p></details>
+      <details class="reveal"><summary>Quantas sessões costumam ser necessárias?</summary><p>RESPOSTA DA JAQUELINE</p></details>
+      <details class="reveal"><summary>A terapia ajuda na queda de cabelo?</summary><p>RESPOSTA DA JAQUELINE</p></details>
+      <details class="reveal"><summary>Posso fazer com química ou coloração no cabelo?</summary><p>RESPOSTA DA JAQUELINE</p></details>
+      <details class="reveal"><summary>Preciso ir com o cabelo lavado?</summary><p>RESPOSTA DA JAQUELINE</p></details>
+    </div>
+  </div>
+</section>
+-->
 
 <!-- ============ AGENDAMENTO ============ -->
 <section class="agendar" id="agendar">
@@ -542,7 +572,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     <div class="agendar-intro reveal">
       <span class="kicker" style="display:block;margin-bottom:1rem">Agendamento</span>
       <h2>Marque sua <em>avaliação</em></h2>
-      <p>Escolha o serviço, o dia e o horário livre. A reserva entra direto na agenda da Jaqueline, e ela confirma com você pelo WhatsApp.</p>
+      <p>Escolha o serviço, o dia e o horário livre. A reserva entra direto na agenda da Jaqueline, ela recebe o aviso no WhatsApp e confirma com você.</p>
       <ul class="agendar-bullets">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Resposta pessoal, sem robô</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Sem compromisso até confirmar</li>
@@ -651,7 +681,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
         <a href="#sobre">Sobre</a>
         <a href="#terapias">Terapias</a>
         <a href="#metodo">Como funciona</a>
-        <a href="#resultados">Resultados</a>
+        <a href="#atelie">No ateliê</a>
         <a href="#contato">Localização</a>
         <a href="https://www.instagram.com/ateliedasraizes_" target="_blank" rel="noopener">Instagram</a>
       </nav>
@@ -818,10 +848,13 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 
     if (r && r.ok){
       form.querySelectorAll('input,select,button').forEach(el => el.disabled = true);
-      const msg = encodeURIComponent('Olá, Jaqueline! Confirmei um agendamento pelo site:\n\n• Nome: '+p.nome+'\n• Serviço: '+p.servico+'\n• Dia: '+dataBonita(p.data)+'\n• Horário: '+p.hora);
+      const msg = encodeURIComponent('Olá, Jaqueline! Agendei pelo site ('+p.servico+', '+dataBonita(p.data)+' às '+p.hora+') e preciso remarcar.');
       resultado.hidden = false; resultado.className = 'agenda-result ok';
-      resultado.innerHTML = '<strong>Horário reservado! 🌿</strong>'+p.servico+', '+dataBonita(p.data)+' às '+p.hora+'.<br>A Jaqueline vai confirmar com você. Quer avisá-la agora?'+
-        '<a class="btn btn-escuro" href="https://wa.me/'+WPP+'?text='+msg+'" target="_blank" rel="noopener">Avisar no WhatsApp</a>';
+      resultado.innerHTML = '<strong>Horário reservado! 🌿</strong>'+p.servico+', '+dataBonita(p.data)+' às '+p.hora+'.<br>'+
+        'A Jaqueline já recebeu o seu agendamento e confirma com você pelo WhatsApp '+p.telefone.replace(/[^\d()+\- ]/g,'')+'.<br>'+
+        '<span style="font-size:.88rem;opacity:.85">Precisa remarcar ou cancelar? É só chamar no WhatsApp.</span>'+
+        '<a class="btn btn-escuro" href="https://wa.me/'+WPP+'?text='+msg+'" target="_blank" rel="noopener">Remarcar pelo WhatsApp</a>';
+      if (window.va) window.va('event', { name: 'Agendamento', data: { servico: p.servico } });
       resultado.scrollIntoView({behavior:'smooth', block:'center'});
     } else if (r && r.motivo === 'ocupado'){
       resultado.hidden = false; resultado.className = 'agenda-result erro';
@@ -842,6 +875,14 @@ const wppFlut = document.querySelector('.wpp-flut');
 const mqCel = window.matchMedia('(max-width:860px)');
 const onScrollWpp = () => wppFlut.classList.toggle('oculto', mqCel.matches && window.scrollY < 520);
 onScrollWpp(); window.addEventListener('scroll', onScrollWpp, {passive:true}); mqCel.addEventListener('change', onScrollWpp);
+
+// Conta cliques no WhatsApp e no Instagram (Vercel Analytics)
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href*="wa.me"], a[href*="instagram.com"]');
+  if (!a || !window.va) return;
+  const onde = a.closest('section, header, footer');
+  window.va('event', { name: a.href.includes('wa.me') ? 'Clique WhatsApp' : 'Clique Instagram', data: { onde: (onde && onde.id) || (a.classList.contains('wpp-flut') ? 'flutuante' : 'outro') } });
+});
 
 // Reveal no scroll
 const io = new IntersectionObserver((entries) => {

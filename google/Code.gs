@@ -17,6 +17,13 @@ const HORA_INICIO = '09:00';
 const HORA_FIM    = '18:00';
 const DIAS_MAX_ANTECEDENCIA = 60;        // até quantos dias à frente o site aceita reservar
 
+// ===== Aviso de novo agendamento =====
+// Fica nas "Propriedades do script" (Configurações do projeto > Propriedades do script),
+// fora do código, para a chave não ir parar no GitHub:
+//   WHATSAPP_AVISO   número da Jaqueline com DDI e DDD, só dígitos (ex.: 5511961712240)
+//   CALLMEBOT_APIKEY chave que o CallMeBot manda no WhatsApp dela (ver COMO-PUBLICAR.md)
+//   EMAIL_AVISO      (opcional) e-mail para receber cópia; sem ele, vai para a conta dona do script
+
 // ===== Entradas HTTP =====
 function doGet(e) {
   const p = (e && e.parameter) || {};
@@ -101,15 +108,55 @@ function agendar(d) {
       { description:
           'Serviço: ' + servico +
           '\nCliente: ' + nome +
-          '\nWhatsApp: ' + telefone +
+          '\nWhatsApp: ' + telefone + ' (https://wa.me/' + comDDI(digitos) + ')' +
           '\nAgendado pelo site.' }
     );
+    // o aviso não pode desfazer a reserva: se falhar, o horário continua na agenda
+    try { avisar({ nome: nome, telefone: telefone, digitos: digitos, servico: servico, inicio: inicio }); }
+    catch (err) { console.error('Aviso falhou: ' + err); }
     return { ok: true };
   } catch (err) {
     return { ok: false, motivo: 'erro' };
   } finally {
     lock.releaseLock();
   }
+}
+
+// ===== Avisos: WhatsApp da Jaqueline (CallMeBot) + e-mail =====
+function avisar(r) {
+  const props = PropertiesService.getScriptProperties();
+  const quando = Utilities.formatDate(r.inicio, TZ, "dd/MM (EEE) 'às' HH:mm");
+  const texto =
+    '🌿 *Novo agendamento pelo site*\n\n' +
+    '*' + r.servico + '*\n' +
+    quando + '\n\n' +
+    'Cliente: ' + r.nome + '\n' +
+    'WhatsApp: ' + r.telefone + '\n' +
+    'Responder: https://wa.me/' + comDDI(r.digitos);
+
+  const fone = (props.getProperty('WHATSAPP_AVISO') || '').replace(/\D/g, '');
+  const chave = props.getProperty('CALLMEBOT_APIKEY');
+  if (fone && chave) {
+    const url = 'https://api.callmebot.com/whatsapp.php?phone=' + fone +
+      '&text=' + encodeURIComponent(texto) + '&apikey=' + encodeURIComponent(chave);
+    const resp = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+    if (resp.getResponseCode() !== 200) console.error('CallMeBot ' + resp.getResponseCode() + ': ' + resp.getContentText().slice(0, 200));
+  }
+
+  const email = props.getProperty('EMAIL_AVISO') || Session.getEffectiveUser().getEmail();
+  if (email) {
+    MailApp.sendEmail(email, 'Novo agendamento: ' + r.servico + ' · ' + quando, texto.replace(/\*/g, ''));
+  }
+}
+
+// Teste manual: rode esta função no editor do Apps Script para conferir se o aviso chega.
+function testarAviso() {
+  avisar({ nome: 'Teste do site', telefone: '(11) 90000-0000', digitos: '11900000000',
+           servico: 'Avaliação capilar', inicio: new Date() });
+}
+
+function comDDI(digitos) {
+  return digitos.length <= 11 ? '55' + digitos : digitos;
 }
 
 // ===== Auxiliares =====
