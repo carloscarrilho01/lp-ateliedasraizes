@@ -4,21 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ateliê das Raízes · Terapia Capilar Integrativa · Jaqueline Moreira</title>
-<meta name="description" content="Ateliê das Raízes, terapia capilar integrativa com Jaqueline Moreira em São Paulo. Saúde, estética e cuidado do couro cabeludo à ponta do fio. Agende sua avaliação.">
+<meta name="description" content="Ateliê das Raízes, terapia capilar integrativa com Jaqueline Moreira em Santana de Parnaíba (SP). Saúde, estética e cuidado do couro cabeludo à ponta do fio. Agende sua avaliação.">
 
 <!-- Open Graph / redes sociais -->
 <meta property="og:title" content="Ateliê das Raízes · Terapia Capilar Integrativa">
-<meta property="og:description" content="Cuidar do cabelo começa pela raiz. Terapia capilar integrativa com Jaqueline Moreira, em São Paulo.">
+<meta property="og:description" content="Cuidar do cabelo começa pela raiz. Terapia capilar integrativa com Jaqueline Moreira, em Santana de Parnaíba (SP).">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#26331F">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 
 <!-- Meta Pixel / GA4: colar o ID aqui quando a cliente tiver conta de anúncios -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HairSalon", "name": "Ateliê das Raízes", "description": "Terapia capilar integrativa com Jaqueline Moreira: avaliação do couro cabeludo, terapia capilar, tratamentos, corte e design de sobrancelhas.", "telephone": "+55 11 96171-2240", "address": {"@type": "PostalAddress", "streetAddress": "Rua Mato Grosso", "addressLocality": "Santana de Parnaíba", "addressRegion": "SP", "postalCode": "06530-445", "addressCountry": "BR"}, "areaServed": "Santana de Parnaíba", "employee": {"@type": "Person", "name": "Jaqueline Moreira", "jobTitle": "Terapeuta Capilar Integrativa"}, "sameAs": ["https://www.instagram.com/ateliedasraizes_"]}</script>
+
+<!-- Fontes servidas pelo próprio site (Fraunces e DM Sans, licença OFL, via @fontsource) -->
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-normal.woff2) format('woff2-variations'),url(fonts/fraunces-latin-opsz-normal.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-italic.woff2) format('woff2-variations'),url(fonts/fraunces-latin-opsz-italic.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(fonts/dm-sans-latin-opsz-normal.woff2) format('woff2-variations'),url(fonts/dm-sans-latin-opsz-normal.woff2) format('woff2')}
 :root{
   --raiz:#26331F;      /* verde profundo, âncora */
   --raiz-escura:#1C2717;
@@ -186,7 +193,7 @@ section{padding:clamp(70px,10vw,120px) 0}
 }
 .passo h3{font-size:1.2rem;font-weight:500;margin-bottom:.5rem;color:var(--carvao)}
 .passo p{font-size:.95rem;color:var(--carvao-suave)}
-.passo:not(:last-child)::after{content:"";position:absolute;top:2.05rem;right:-.9rem;width:1.1rem;height:2px;background:var(--linha)}
+.passo:not(:last-child)::after{content:"";position:absolute;top:2.75rem;left:3.6rem;right:-1.2rem;height:1px;background:linear-gradient(90deg,rgba(176,122,79,.45),rgba(176,122,79,.12))}
 
 /* Galeria de resultados */
 .galeria{background:var(--areia)}
@@ -257,17 +264,11 @@ section{padding:clamp(70px,10vw,120px) 0}
 .info-lista .val{color:var(--carvao);font-weight:500;font-size:1.02rem}
 .info-lista .val small{display:block;color:var(--carvao-suave);font-weight:400;font-size:.85rem;margin-top:.15rem}
 
-.cta-cartao{
-  background:linear-gradient(160deg,var(--raiz),var(--raiz-escura));color:var(--creme);
-  border-radius:var(--raio);padding:2.6rem 2.2rem;box-shadow:0 30px 60px -30px rgba(38,51,31,.5);
-  position:sticky;top:100px;
-}
-.cta-cartao .marca-svg{width:40px;height:40px;color:var(--dourado);margin-bottom:1.2rem}
-.cta-cartao h3{font-size:1.6rem;font-weight:500;margin-bottom:.7rem}
-.cta-cartao p{color:rgba(236,227,210,.8);font-size:.98rem;margin-bottom:1.7rem}
-.cta-cartao .btn{width:100%;justify-content:center;margin-bottom:.8rem}
-.cta-cartao .insta{display:inline-flex;align-items:center;gap:.5rem;color:rgba(236,227,210,.8);font-size:.92rem;font-weight:500;justify-content:center;width:100%}
-.cta-cartao .insta:hover{color:var(--dourado)}
+
+.info-lista a.val:hover{color:var(--argila-escura)}
+.mapa{border-radius:var(--raio);overflow:hidden;aspect-ratio:4/3.4;background:var(--areia-2);box-shadow:0 30px 60px -30px rgba(38,51,31,.5);border:1px solid var(--linha)}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.campo-isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* Rodapé */
 footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0 2.5rem}
@@ -286,6 +287,8 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
   box-shadow:0 12px 28px -8px rgba(37,211,102,.6);transition:transform .25s var(--ease);
 }
 .wpp-flut:hover{transform:scale(1.08)}
+.wpp-flut{transition:transform .25s var(--ease),opacity .3s}
+.wpp-flut.oculto{opacity:0;transform:translateY(16px) scale(.9);pointer-events:none}
 .wpp-flut svg{width:30px;height:30px}
 
 /* Reveal */
@@ -313,10 +316,11 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
   .hero-pilares{grid-template-columns:1fr;gap:1.8rem;text-align:left}
   .hero-grid{grid-template-columns:1fr;gap:2.2rem}
   .hero-retrato{order:-1;max-width:360px;margin:0 auto;aspect-ratio:1}
-  .cta-cartao{position:static}
-  .contato-grid{direction:ltr}
+    .contato-grid{direction:ltr}
 }
 @media(max-width:480px){
+  .kicker-sep{display:none}
+  .kicker-cidade{display:block;margin-top:.35rem}
   .passos{grid-template-columns:1fr}
   .hero{padding-top:110px}
 }
@@ -343,6 +347,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     <nav class="nav-links" id="menu">
       <a href="#sobre">Sobre</a>
       <a href="#terapias">Terapias</a>
+      <a href="#metodo">Como funciona</a>
       <a href="#resultados">Resultados</a>
       <a href="#contato">Localização</a>
       <a class="btn btn-primario" href="#agendar">Agendar</a>
@@ -355,7 +360,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
-  <img class="hero-bg" src="img/hero-bg.jpg" alt="" aria-hidden="true">
+  <img class="hero-bg" src="img/hero-bg.webp" alt="" aria-hidden="true" width="1200" height="1000" fetchpriority="low">
   <div class="hero-veu"></div>
   <svg class="hero-raizes" viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <g stroke="#ECE3D2" stroke-width="1.3" fill="none" opacity="0.9">
@@ -371,7 +376,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
   <div class="container">
    <div class="hero-grid">
     <div class="hero-conteudo">
-    <span class="kicker reveal">Terapia Capilar Integrativa · São Paulo</span>
+    <span class="kicker reveal">Terapia Capilar Integrativa<span class="kicker-sep"> · </span><span class="kicker-cidade">Santana de Parnaíba</span></span>
     <h1 class="reveal">Cuidar do cabelo<br>começa pela <em>raiz</em>.</h1>
     <p class="sub reveal">No Ateliê das Raízes, Jaqueline Moreira une saúde, estética e cuidado para tratar o couro cabeludo e o fio de dentro para fora, com avaliação individual e um plano feito para você.</p>
     <div class="hero-ctas reveal">
@@ -383,7 +388,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     </div>
     </div>
     <figure class="hero-retrato reveal">
-      <img src="img/hero-foto.jpg" alt="Cuidado capilar do Ateliê das Raízes" loading="eager" decoding="async">
+      <img src="img/hero-foto.webp" alt="Cuidado capilar do Ateliê das Raízes" width="720" height="900" fetchpriority="high" loading="eager" decoding="async">
     </figure>
    </div>
 
@@ -411,7 +416,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
 <section class="sobre" id="sobre">
   <div class="container sobre-grid">
     <div class="sobre-foto reveal">
-      <img src="img/sobre.jpg" alt="Jaqueline Moreira, terapeuta capilar integrativa do Ateliê das Raízes" loading="lazy" decoding="async">
+      <img src="img/sobre.webp" alt="Jaqueline Moreira, terapeuta capilar integrativa do Ateliê das Raízes" loading="lazy" decoding="async">
     </div>
     <div class="sobre-texto reveal">
       <span class="kicker" style="display:block;margin-bottom:1rem">Quem cuida de você</span>
@@ -517,10 +522,10 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
       <p>Do couro cabeludo tratado ao fio com vida, alguns registros do trabalho do ateliê.</p>
     </div>
     <div class="galeria-grid">
-      <figure class="galeria-item reveal"><img src="img/metodo.jpg" alt="Aplicação de tratamento no couro cabeludo" loading="lazy" decoding="async"><figcaption>Saúde do couro cabeludo</figcaption></figure>
-      <figure class="galeria-item reveal"><img src="img/g1.jpg" alt="Cabelo saudável após tratamento" loading="lazy" decoding="async"><figcaption>Fios com vida</figcaption></figure>
-      <figure class="galeria-item reveal"><img src="img/g2.jpg" alt="Resultado de tratamento capilar" loading="lazy" decoding="async"><figcaption>Resultado do cuidado</figcaption></figure>
-      <figure class="galeria-item reveal"><img src="img/g3.jpg" alt="Produtos usados no tratamento capilar" loading="lazy" decoding="async"><figcaption>Produtos selecionados</figcaption></figure>
+      <figure class="galeria-item reveal"><img src="img/metodo.webp" alt="Aplicação de tratamento no couro cabeludo" loading="lazy" decoding="async"><figcaption>Saúde do couro cabeludo</figcaption></figure>
+      <figure class="galeria-item reveal"><img src="img/g1.webp" alt="Cabelo saudável após tratamento" loading="lazy" decoding="async"><figcaption>Fios com vida</figcaption></figure>
+      <figure class="galeria-item reveal"><img src="img/g2.webp" alt="Resultado de tratamento capilar" loading="lazy" decoding="async"><figcaption>Resultado do cuidado</figcaption></figure>
+      <figure class="galeria-item reveal"><img src="img/g3.webp" alt="Produtos usados no tratamento capilar" loading="lazy" decoding="async"><figcaption>Produtos selecionados</figcaption></figure>
     </div>
   </div>
 </section>
@@ -531,7 +536,7 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
     <div class="agendar-intro reveal">
       <span class="kicker" style="display:block;margin-bottom:1rem">Agendamento</span>
       <h2>Marque sua <em>avaliação</em></h2>
-      <p>Escolha o serviço e o melhor dia. Ao enviar, abre direto o WhatsApp da Jaqueline com o seu pedido já preenchido, ela confirma o horário com você.</p>
+      <p>Escolha o serviço, o dia e o horário livre. A reserva entra direto na agenda da Jaqueline, e ela confirma com você pelo WhatsApp.</p>
       <ul class="agendar-bullets">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Resposta pessoal, sem robô</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Sem compromisso até confirmar</li>
@@ -569,64 +574,59 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
 
       <div class="campo">
         <label for="f-nome">Seu nome</label>
-        <input type="text" id="f-nome" name="nome" placeholder="Como posso te chamar?" required>
+        <input type="text" id="f-nome" name="nome" placeholder="Como posso te chamar?" autocomplete="name" maxlength="80" required>
       </div>
       <div class="campo">
-        <label for="f-tel">WhatsApp (opcional)</label>
-        <input type="tel" id="f-tel" name="telefone" inputmode="tel" placeholder="(11) 90000-0000">
+        <label for="f-tel">Seu WhatsApp</label>
+        <input type="tel" id="f-tel" name="telefone" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required>
+        <p class="campo-aviso" id="avisoTel" hidden>Confira o número com DDD, é por ele que a Jaqueline confirma.</p>
+      </div>
+      <div class="campo-isca" aria-hidden="true">
+        <label for="f-site">Deixe em branco</label>
+        <input type="text" id="f-site" name="site" tabindex="-1" autocomplete="off">
       </div>
 
       <button type="submit" class="btn btn-primario" id="btnAgendar" disabled>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
         Confirmar agendamento
       </button>
-      <p class="form-nota">Ao confirmar, seu horário fica reservado na agenda. Seus dados são usados só para o atendimento (LGPD).</p>
+      <p class="form-nota">Ao confirmar, o horário fica reservado e a Jaqueline confirma pelo WhatsApp. Seus dados são usados só para o atendimento (LGPD).</p>
 
       <div class="agenda-result" id="agendaResultado" hidden></div>
     </form>
   </div>
 </section>
 
-<!-- ============ CONTATO ============ -->
+<!-- ============ LOCALIZAÇÃO ============ -->
 <section class="contato" id="contato">
   <div class="container contato-grid">
     <div class="contato-info reveal">
-      <span class="kicker" style="display:block;margin-bottom:1rem">Agende sua avaliação</span>
-      <h2>Vamos cuidar do <em>seu cabelo</em></h2>
-      <p>O primeiro passo é a avaliação. Chame no WhatsApp para marcar um horário, respondo pessoalmente.</p>
+      <span class="kicker" style="display:block;margin-bottom:1rem">Localização</span>
+      <h2>Onde fica <em>o ateliê</em></h2>
+      <p>O atendimento é com hora marcada, em Santana de Parnaíba. Agende pelo site ou chame no WhatsApp.</p>
       <ul class="info-lista">
         <li>
-          <span class="info-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.8-1.5-4-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg></span>
-          <div><span class="rot">WhatsApp</span><span class="val">(11) 96171-2240</span></div>
-        </li>
-        <li>
-          <span class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
-          <div><span class="rot">Instagram</span><span class="val">@ateliedasraizes_</span></div>
-        </li>
-        <li>
           <span class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <div><span class="rot">Atendimento</span><span class="val">São Paulo, SP <small><!-- PLACEHOLDER: endereço completo / bairro --> Endereço a confirmar com a cliente</small></span></div>
+          <div><span class="rot">Endereço</span><a class="val" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Mato+Grosso,+Ch%C3%A1cara+do+Solar+II,+Santana+de+Parna%C3%ADba+-+SP,+06530-445" target="_blank" rel="noopener">Rua Mato Grosso, Chácara do Solar II <small>Santana de Parnaíba, SP · CEP 06530-445 · Abrir no mapa →</small></a></div>
         </li>
         <li>
           <span class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <div><span class="rot">Horário</span><span class="val"><!-- PLACEHOLDER: horário real -->Com hora marcada <small>Dias e horários a confirmar</small></span></div>
+          <div><span class="rot">Horário</span><span class="val">Com hora marcada <small>Veja os horários livres na agenda acima</small></span></div>
+        </li>
+        <li>
+          <span class="info-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.8-1.5-4-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg></span>
+          <div><span class="rot">WhatsApp</span><a class="val" href="https://wa.me/5511961712240?text=Ol%C3%A1%2C%20Jaqueline!%20Vi%20o%20site%20do%20Ateli%C3%AA%20das%20Ra%C3%ADzes%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">(11) 96171-2240</a></div>
+        </li>
+        <li>
+          <span class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+          <div><span class="rot">Instagram</span><a class="val" href="https://www.instagram.com/ateliedasraizes_" target="_blank" rel="noopener">@ateliedasraizes_</a></div>
         </li>
       </ul>
     </div>
 
-    <aside class="cta-cartao reveal">
-      <svg class="marca-svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M16 3c0 5-3 7-3 11a3 3 0 006 0c0-4-3-6-3-11z" fill="currentColor"/>
-        <path d="M16 17v12M16 29c-3 0-6-2-7-5M16 29c3 0 6-2 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <h3>Marque sua avaliação</h3>
-      <p>Me conte o que você sente no seu cabelo e eu te ajudo a montar o melhor caminho.</p>
-      <a class="btn btn-primario" href="https://wa.me/5511961712240?text=Ol%C3%A1%2C%20Jaqueline!%20Vi%20o%20site%20do%20Ateli%C3%AA%20das%20Ra%C3%ADzes%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.8-1.5-4-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2z"/></svg>
-        Chamar no WhatsApp
-      </a>
-      <a class="insta" href="https://www.instagram.com/ateliedasraizes_" target="_blank" rel="noopener">Ver no Instagram →</a>
-    </aside>
+    <div class="mapa reveal">
+      <iframe title="Mapa: Rua Mato Grosso, Chácara do Solar II, Santana de Parnaíba, SP, 06530-445" src="https://www.google.com/maps?q=Rua+Mato+Grosso,+Ch%C3%A1cara+do+Solar+II,+Santana+de+Parna%C3%ADba+-+SP,+06530-445&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 </section>
 
@@ -644,7 +644,8 @@ footer{background:var(--raiz-escura);color:rgba(236,227,210,.7);padding:3.5rem 0
       <nav class="rodape-links">
         <a href="#sobre">Sobre</a>
         <a href="#terapias">Terapias</a>
-        <a href="#metodo">O método</a>
+        <a href="#metodo">Como funciona</a>
+        <a href="#resultados">Resultados</a>
         <a href="#contato">Localização</a>
         <a href="https://www.instagram.com/ateliedasraizes_" target="_blank" rel="noopener">Instagram</a>
       </nav>
@@ -696,7 +697,8 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   const conectado = !!cfg.appsScriptUrl && !/COLE-A-URL/.test(cfg.appsScriptUrl);
 
   const $ = id => document.getElementById(id);
-  const elData = $('f-data'), elHora = $('f-hora'), elNome = $('f-nome'), elTel = $('f-tel'), elServ = $('f-serv');
+  const elData = $('f-data'), elHora = $('f-hora'), elNome = $('f-nome'), elTel = $('f-tel'), elServ = $('f-serv'), elIsca = $('f-site'), avisoTel = $('avisoTel');
+  const telOk = () => { const d = elTel.value.replace(/\D/g,''); return d.length >= 10 && d.length <= 13; };
   const blocoHoras = $('blocoHoras'), slotsEl = $('slots'), avisoDia = $('avisoDia');
   const btn = $('btnAgendar'), resultado = $('agendaResultado'), banner = $('agendaBanner');
 
@@ -704,6 +706,8 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   const hoje = new Date();
   const hojeStr = [hoje.getFullYear(), String(hoje.getMonth()+1).padStart(2,'0'), String(hoje.getDate()).padStart(2,'0')].join('-');
   elData.min = hojeStr;
+  const lim = new Date(hoje.getTime() + 60*864e5);  // mesmo limite do Code.gs (DIAS_MAX_ANTECEDENCIA)
+  elData.max = [lim.getFullYear(), String(lim.getMonth()+1).padStart(2,'0'), String(lim.getDate()).padStart(2,'0')].join('-');
 
   // Banner de modo demonstração
   if (!conectado) {
@@ -745,12 +749,12 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     const [hi,mi] = cfg.horaInicio.split(':').map(Number);
     const [hf,mf] = cfg.horaFim.split(':').map(Number);
     const ini = hi*60+mi, fim = hf*60+mf, out = [];
-    for (let t=ini; t<fim; t+=cfg.duracaoMin) out.push(String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0'));
+    for (let t=ini; t+cfg.duracaoMin<=fim; t+=cfg.duracaoMin) out.push(String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0'));
     return out;
   }
 
   function limparResultado(){ resultado.hidden = true; resultado.className = 'agenda-result'; resultado.innerHTML=''; }
-  function atualizaBotao(){ btn.disabled = !(elServ.value && elData.value && elHora.value && elNome.value.trim().length>=2); }
+  function atualizaBotao(){ btn.disabled = !(elServ.value && elData.value && elHora.value && elNome.value.trim().length>=2 && telOk()); }
 
   async function aoMudarData(){
     limparResultado(); elHora.value=''; blocoHoras.hidden = true; avisoDia.hidden = true; atualizaBotao();
@@ -790,14 +794,15 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   }
 
   elData.addEventListener('change', aoMudarData);
-  [elNome, elServ].forEach(el => el.addEventListener('input', atualizaBotao));
+  [elNome, elServ, elTel].forEach(el => el.addEventListener('input', atualizaBotao));
+  elTel.addEventListener('blur', () => { avisoTel.hidden = !elTel.value || telOk(); });
 
   function dataBonita(d){ const p=d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const p = { nome:elNome.value.trim(), telefone:(elTel.value||'').trim(), servico:elServ.value, data:elData.value, hora:elHora.value };
-    if (!p.servico || !p.data || !p.hora || p.nome.length<2){ atualizaBotao(); return; }
+    const p = { nome:elNome.value.trim(), telefone:(elTel.value||'').trim(), servico:elServ.value, data:elData.value, hora:elHora.value, site:elIsca.value };
+    if (!p.servico || !p.data || !p.hora || p.nome.length<2 || !telOk()){ avisoTel.hidden = telOk(); atualizaBotao(); return; }
 
     btn.disabled = true; const txtOrig = btn.innerHTML; btn.innerHTML = 'Reservando…';
     let r;
@@ -825,6 +830,12 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     }
   });
 })();
+
+// WhatsApp flutuante: no celular só aparece depois do topo (antes ele cobria o texto)
+const wppFlut = document.querySelector('.wpp-flut');
+const mqCel = window.matchMedia('(max-width:860px)');
+const onScrollWpp = () => wppFlut.classList.toggle('oculto', mqCel.matches && window.scrollY < 520);
+onScrollWpp(); window.addEventListener('scroll', onScrollWpp, {passive:true}); mqCel.addEventListener('change', onScrollWpp);
 
 // Reveal no scroll
 const io = new IntersectionObserver((entries) => {

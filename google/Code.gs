@@ -15,6 +15,7 @@ const DUR_MIN = 60;                      // duração de cada atendimento (minut
 const DIAS_ATENDIMENTO = [2,3,4,5,6];    // 0=Dom 1=Seg 2=Ter ... 6=Sáb
 const HORA_INICIO = '09:00';
 const HORA_FIM    = '18:00';
+const DIAS_MAX_ANTECEDENCIA = 60;        // até quantos dias à frente o site aceita reservar
 
 // ===== Entradas HTTP =====
 function doGet(e) {
@@ -32,46 +33,75 @@ function doPost(e) {
   return json(agendar(d));
 }
 
-// ===== Leitura: horários ocupados de um dia =====
+// ===== Grade de horários do dia (mesma regra do agenda-config.js) =====
+function grade() {
+  const paraMin = h => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
+  const out = [];
+  for (let t = paraMin(HORA_INICIO); t + DUR_MIN <= paraMin(HORA_FIM); t += DUR_MIN) {
+    out.push(('0' + Math.floor(t / 60)).slice(-2) + ':' + ('0' + (t % 60)).slice(-2));
+  }
+  return out;
+}
+
+function dataValida(data) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(String(data || ''));
+}
+
+// ===== Leitura: horários da grade que estão ocupados num dia =====
+// Um horário fica ocupado se QUALQUER evento da agenda se sobrepõe a ele:
+// compromisso de 2h, evento que começa "quebrado" (9h30) ou dia inteiro (folga).
+// Só devolve os horários da grade, nunca os detalhes dos eventos.
 function ocupadosDoDia(data) {
-  const cal = calObj();
+  if (!dataValida(data)) return [];
   const [y, m, dd] = data.split('-').map(Number);
-  const ini = new Date(y, m - 1, dd, 0, 0, 0);
-  const fim = new Date(y, m - 1, dd, 23, 59, 59);
-  return cal.getEvents(ini, fim).map(function (ev) {
-    return Utilities.formatDate(ev.getStartTime(), TZ, 'HH:mm');
+  const eventos = calObj().getEvents(new Date(y, m - 1, dd, 0, 0, 0), new Date(y, m - 1, dd, 23, 59, 59));
+  return grade().filter(function (h) {
+    const [hh, mi] = h.split(':').map(Number);
+    const ini = new Date(y, m - 1, dd, hh, mi, 0);
+    const fim = new Date(ini.getTime() + DUR_MIN * 60000);
+    return eventos.some(function (ev) { return ev.getStartTime() < fim && ev.getEndTime() > ini; });
   });
 }
 
 // ===== Escrita: cria o agendamento (com trava anti-duplicidade) =====
 function agendar(d) {
+  // campo isca: gente não vê nem preenche; robô preenche
+  if (d && d.site) return { ok: true };
+
+  const nome = String((d && d.nome) || '').trim().slice(0, 80);
+  const telefone = String((d && d.telefone) || '').replace(/[^\d()+\- ]/g, '').trim().slice(0, 20);
+  const servico = String((d && d.servico) || 'Atendimento').trim().slice(0, 60);
+  const digitos = telefone.replace(/\D/g, '');
+
+  if (nome.length < 2) return { ok: false, motivo: 'nome' };
+  if (digitos.length < 10 || digitos.length > 13) return { ok: false, motivo: 'telefone' };
+  if (!dataValida(d.data) || grade().indexOf(String(d.hora)) === -1) return { ok: false, motivo: 'dados' };
+
+  const [y, m, dd] = d.data.split('-').map(Number);
+  const [hh, mi]   = d.hora.split(':').map(Number);
+  const inicio = new Date(y, m - 1, dd, hh, mi, 0);
+  const limite = new Date(Date.now() + DIAS_MAX_ANTECEDENCIA * 86400000);
+
+  if (inicio < new Date()) return { ok: false, motivo: 'passado' };
+  if (inicio > limite) return { ok: false, motivo: 'longe' };
+  if (DIAS_ATENDIMENTO.indexOf(inicio.getDay()) === -1) return { ok: false, motivo: 'fechado' };
+
   const lock = LockService.getScriptLock();
   try { lock.waitLock(10000); }
   catch (e) { return { ok: false, motivo: 'erro' }; }
 
   try {
-    if (!d || !d.nome || String(d.nome).trim().length < 2) return { ok: false, motivo: 'nome' };
-    if (!d.data || !d.hora) return { ok: false, motivo: 'dados' };
-
-    const [y, m, dd] = d.data.split('-').map(Number);
-    const [hh, mi]   = d.hora.split(':').map(Number);
-    const inicio = new Date(y, m - 1, dd, hh, mi, 0);
-
-    if (inicio < new Date()) return { ok: false, motivo: 'passado' };
-    if (DIAS_ATENDIMENTO.indexOf(inicio.getDay()) === -1) return { ok: false, motivo: 'fechado' };
-    if (d.hora < HORA_INICIO || d.hora >= HORA_FIM) return { ok: false, motivo: 'fora' };
-
-    // conflito: alguém já tem esse horário?
+    // conflito: alguém (ou um compromisso da Jaqueline) já ocupa esse horário?
     if (ocupadosDoDia(d.data).indexOf(d.hora) !== -1) return { ok: false, motivo: 'ocupado' };
 
     const fim = new Date(inicio.getTime() + DUR_MIN * 60000);
     calObj().createEvent(
-      'Ateliê das Raízes — ' + (d.servico || 'Atendimento') + ' · ' + d.nome,
+      'Ateliê das Raízes — ' + servico + ' · ' + nome,
       inicio, fim,
       { description:
-          'Serviço: ' + (d.servico || '') +
-          '\nCliente: ' + d.nome +
-          '\nWhatsApp: ' + (d.telefone || '—') +
+          'Serviço: ' + servico +
+          '\nCliente: ' + nome +
+          '\nWhatsApp: ' + telefone +
           '\nAgendado pelo site.' }
     );
     return { ok: true };

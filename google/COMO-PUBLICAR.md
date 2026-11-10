@@ -37,6 +37,8 @@ Salve. Pronto: os agendamentos do site passam a cair no Google Calendar, e horá
 somem da tela automaticamente.
 
 ## Importante
+- **Atualizou o `Code.gs`?** Cole a versão nova no Apps Script e faça **Implantar → Gerenciar implantações → editar (lápis) → Versão: Nova versão → Implantar**. A URL `/exec` continua a mesma; sem isso o site segue usando o código antigo.
+- Confira o **fuso do projeto** no Apps Script (Configurações do projeto → Fuso horário: `(GMT-03:00) São Paulo`), para os horários baterem com a agenda.
 - Se mudar os **dias/horários** de atendimento, ajuste nos **dois lugares**: no `agenda-config.js`
   (o que o cliente vê) e no `Code.gs` (`DIAS_ATENDIMENTO`, `HORA_INICIO`, `HORA_FIM`, `DUR_MIN`),
   e **reimplante** (Implantar → Gerenciar implantações → editar → Nova versão).

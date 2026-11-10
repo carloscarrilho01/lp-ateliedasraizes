@@ -1,0 +1,6 @@
+# Arquivos do projeto que não precisam ir para o ar
+README.md
+google/
+img/_originais-instagram/
+# o site usa as versões .webp
+img/*.jpg
